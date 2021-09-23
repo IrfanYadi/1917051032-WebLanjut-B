@@ -42,6 +42,7 @@ $routes->get('/', function(){
 	return view('v_home');
 	echo view('layouts/footer');
 });
+$routes->get('/admin', 'Templating::index');
 $routes->get('/biodata/(:alpha)/(:num)', 'Home::fungsiBaru/$1/$2');
 $routes->get('/posts', 'PostController::index');
 
