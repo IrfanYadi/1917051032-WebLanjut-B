@@ -39,10 +39,12 @@ $routes->get('/', function(){
 
 	echo view('layouts/header', $data);
 	echo view('layouts/navbar');
-	return view('v_home');
+	echo view('v_home');
 	echo view('layouts/footer');
 });
 $routes->get('/admin', 'Templating::index');
+$routes->get('/register', 'Templating::register');
+$routes->post('/saveRegister', 'Templating::saveRegister');
 $routes->get('/biodata/(:alpha)/(:num)', 'Home::fungsiBaru/$1/$2');
 $routes->get('/posts', 'PostController::index');
 
