@@ -1,7 +1,7 @@
 <?= $this->extend('template'); ?>
+
 <?= $this->section('content'); ?>
-
-
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -148,11 +148,11 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="/assets/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">BlogApp</span>
     </a>
 
     <!-- Sidebar -->
@@ -170,16 +170,22 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="/admin" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>Dashboard</p>
+              <p>
+                Dashboard
+              </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/admin/posts" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
-              <p>My posts</p>
+              <p>
+                My Posts
+              </p>
             </a>
           </li>
         </ul>
@@ -196,7 +202,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">My Posts</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -208,15 +214,46 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-
-          </section>
-          <!-- right col -->
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Form Tambah Posts
+            </div>
+            <div class="card-body">
+                <form action="/admin/posts/store" method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="judul">Judul Postingan</label>
+                                <input type="text" class="form-control" id="judul" name="judul">
+                            </div>
+                            <div class="form-group">
+                                <label for="slug">slug</label>
+                                <input type="text" class="form-control" id="slug" name="slug">
+                            </div>
+                            <div class="form-group">
+                                <label for="kategori">Kategori Postingan</label>
+                                <input type="text" class="form-control" id="kategori" name="kategori">
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author</label>
+                                <input type="text" class="form-control" id="author" name="author">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <label for="deskripsi">Deskripsi Postingan</label>
+                            <br>
+                            <textarea name="deskripsi" id="deskripsi"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit
+                    </button>
+                </form>
+            </div>
         </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+    </div>
+    <!--bakal dirubah -->
     </section>
     <!-- /.content -->
   </div>
@@ -230,4 +267,10 @@
 </div>
 <!-- ./wrapper -->
 
-<?= $this->endSection(''); ?>
+<?= $this->endSection(); ?>
+
+<?= $this->section('myscript');?>
+<script>
+    $('#deskripsi').summernote()
+</script>
+<?= $this->endSection();?>
